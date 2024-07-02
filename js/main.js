@@ -9,6 +9,7 @@ const dropZones = document.querySelectorAll(".drop-zone");
 const resetButton = document.querySelector("#resetBut");
 let draggedPiece;
 
+//Functions
 function changeBGImage(e){
 
 }
@@ -23,8 +24,13 @@ function handleOver(e){
 }
 
 function handleDrop(e) {
-
-}
+    if (this.querySelector('.puzzle-image')) {
+        console.log('Zone is already occupied');
+    }else {
+        this.appendChild(draggedPiece);
+        console.log(`Piece '${draggedPiece.alt}' placed in '${this.className}'`);
+    }
+    }
 
 theButtons.forEach(button => button.addEventListener("click", changeBGImage));
 puzzlePieces.forEach(piece => piece.addEventListener("dragstart", handleStartDrag));
