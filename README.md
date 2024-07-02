@@ -2,7 +2,7 @@
 This project is a drag and drop puzzle game, Player can choose 4 puzzles to solve.
 
 <p float="left">
-  <img src="images/dragdropimg.png.png" width="500" />
+  <img src="images/dragdropimg.png" width="500" />
 </p>
 
 ## Installation
