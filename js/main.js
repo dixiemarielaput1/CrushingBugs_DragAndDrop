@@ -11,7 +11,12 @@ let draggedPiece;
 
 //Functions
 function changeBGImage(e){
-
+    backgroundID = e.target.id; 
+    console.log(`changeBGimage called (${this.className})`);
+    console.log(this.id);
+    puzzleBoard.style.backgroundImage = `url(images/backGround${e.target.id}.jpg)`;
+    puzzlePieces.forEach(piece => piece.setAttribute('src', piece.getAttribute('src').split(/[0-4]+/).join(e.target.id)));
+    resetPuzzle();
 }
 
 function handleStartDrag(){
@@ -31,6 +36,14 @@ function handleDrop(e) {
         console.log(`Piece '${draggedPiece.alt}' placed in '${this.className}'`);
     }
     }
+
+function resetPuzzle() {
+    dropZones.forEach(zone => {
+    if (zone.firstElementChild) {
+    let piece;
+    piece = zone.removeChild(zone.firstElementChild); 
+    puzzlePiecesHolder.forEach(holder => {holder.appendChild(piece);
+    });}});}
 
 theButtons.forEach(button => button.addEventListener("click", changeBGImage));
 puzzlePieces.forEach(piece => piece.addEventListener("dragstart", handleStartDrag));
